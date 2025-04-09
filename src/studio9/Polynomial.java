@@ -1,16 +1,18 @@
 package studio9;
 
 import java.util.LinkedList;
+import java.util.List;
 
 public class Polynomial {
 	
 	private LinkedList<Double> list;
+	
 
 	/**
 	 * Constructs a Polynomial with no terms yet.
 	 */
 	public Polynomial() {
-		//FIXME
+		List<Double> list = new LinkedList<>();
 	}
 
 	
@@ -20,7 +22,7 @@ public class Polynomial {
 	 * @return polynomial with added term
 	 */
 	public void addTerm(double coeff) {
-		//FIXME
+		System.out.println(list.add(coeff));
 	}
 	
 	/*
@@ -29,7 +31,13 @@ public class Polynomial {
 	 * Cx^N + Cx^N-1 + ... + Cx + C
 	 */
 	public String toString() {
-		return ""; //FIXME
+		String answer = " ";
+		int exp = list.size() - 1;
+		for (int i = 0; i < list.size(); i++) {
+			answer = answer + list.get(i) + "x^" + exp;
+			exp--;
+		}
+		return answer; 
 	}
 	
 	/**
@@ -38,7 +46,13 @@ public class Polynomial {
 	 * @return value of polynomial at that x
 	 */
 	public double evaluate(double x) {
-		return 0;//FIXME
+		double answer = 0;
+		int exp = list.size() - 1;
+		for (int i = 0; i < list.size(); i++) {
+			answer = list.get(i) * Math.pow(x, exp);
+			exp--;
+		}
+		return answer;
 	}
 
 	
